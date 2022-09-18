@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Quizzer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="3c0-aD-mHV" userLabel="backgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="619" translatesAutoresizingMaskIntoConstraints="NO" id="h2b-ZW-tK5" userLabel="MajorView">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-OT-VEk">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a App." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNB-UI-vC1" userLabel="QuestionLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="428" height="438"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUY-s5-Vv3" userLabel="buttonView">
+                                                <rect key="frame" x="0.0" y="488" width="428" height="438"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="89P-jF-GRV">
+                                                        <rect key="frame" x="0.0" y="147" width="428" height="144"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPy-Lk-Zhp" userLabel="True">
+                                                                <rect key="frame" x="46.666666666666657" y="0.0" width="335" height="67"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="nPy-Lk-Zhp" secondAttribute="height" multiplier="5:1" id="cRb-Mk-ouf"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="True">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="AnswerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Nr-Sf-7H6"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg0-OA-OHU" userLabel="False">
+                                                                <rect key="frame" x="46.666666666666657" y="77" width="335" height="67"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="gg0-OA-OHU" secondAttribute="height" multiplier="5:1" id="oFK-nu-vmu"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="False">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="AnswerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EvB-cn-bL1"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="89P-jF-GRV" firstAttribute="centerY" secondItem="HUY-s5-Vv3" secondAttribute="centerY" id="38d-bA-bBk"/>
+                                                    <constraint firstItem="89P-jF-GRV" firstAttribute="leading" secondItem="HUY-s5-Vv3" secondAttribute="leading" id="IzD-2D-skf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="89P-jF-GRV" secondAttribute="trailing" id="toc-Qs-BuA"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OU5-OT-VEk" firstAttribute="leading" secondItem="h2b-ZW-tK5" secondAttribute="leading" id="IJi-mO-iJG"/>
+                                    <constraint firstAttribute="bottom" secondItem="OU5-OT-VEk" secondAttribute="bottom" id="N8B-xN-FrZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="OU5-OT-VEk" secondAttribute="trailing" id="RWA-6c-v6b"/>
+                                    <constraint firstItem="OU5-OT-VEk" firstAttribute="top" secondItem="h2b-ZW-tK5" secondAttribute="top" id="uhr-AW-C1W"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h2b-ZW-tK5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1Kp-t6-7J3"/>
+                            <constraint firstItem="h2b-ZW-tK5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="54N-be-x5A"/>
+                            <constraint firstAttribute="bottom" secondItem="h2b-ZW-tK5" secondAttribute="bottom" id="6dr-El-wYj"/>
+                            <constraint firstItem="3c0-aD-mHV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CMa-zc-FgC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h2b-ZW-tK5" secondAttribute="trailing" id="Rng-Zd-Wen"/>
+                            <constraint firstItem="3c0-aD-mHV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fWy-QP-fTU"/>
+                            <constraint firstAttribute="bottom" secondItem="3c0-aD-mHV" secondAttribute="bottom" id="jaq-6J-EDr"/>
+                            <constraint firstAttribute="trailing" secondItem="3c0-aD-mHV" secondAttribute="trailing" id="mxk-OO-5ff"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="QuestionLabel" destination="MNB-UI-vC1" id="ybD-5V-0Zu"/>
+                        <outlet property="falseButton" destination="gg0-OA-OHU" id="MRN-19-I7i"/>
+                        <outlet property="trueButton" destination="nPy-Lk-Zhp" id="LJg-DS-54N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="65.625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="333.33334350585938" height="333.33334350585938"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
