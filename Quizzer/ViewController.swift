@@ -6,19 +6,31 @@
 //
 
 import UIKit
-
+struct Question{
+    var ques:String
+    var ans:String
+}
+var quiz=[
+    Question(ques: "This is the first ques", ans: "True"),
+    Question(ques: "This is the second ques", ans: "False"),
+    Question(ques: "This is the third ques", ans: "False"),
+    Question(ques: "This is the fourth ques", ans: "True"),
+    Question(ques: "This is the fifth ques", ans: "True"),
+    Question(ques: "This is the six ques", ans: "False")
+    
+]
 class ViewController: UIViewController {
 
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var QuestionLabel: UILabel!
     
-    let ques:[[String]] = [["This is first ques1.","True"],["this is second ques","False"],["this is third ques","True"]]
+//    let ques:[[String]] = [["This is first ques1.","True"],["this is second ques","False"],["this is third ques","True"]]
    
     var quesNumber = -1;
     @IBAction func AnswerButton(_ sender: UIButton) {
         
-        if ques[quesNumber][1] == sender.currentTitle!{
+        if quiz[quesNumber].ans == sender.currentTitle!{
             sender.backgroundColor=UIColor.green
             
             
@@ -45,12 +57,12 @@ class ViewController: UIViewController {
     @objc func updateQues(){
         trueButton.backgroundColor=UIColor.white
         falseButton.backgroundColor=UIColor.white
-        if quesNumber+1==ques.count{
+        if quesNumber+1==quiz.count{
             quesNumber=0
         }else{
             quesNumber+=1
         }
-        QuestionLabel.text=ques[quesNumber][0]
+        QuestionLabel.text=quiz[quesNumber].ques
         
        
     }
