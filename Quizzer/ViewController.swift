@@ -24,18 +24,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var QuestionLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
     
-//    let ques:[[String]] = [["This is first ques1.","True"],["this is second ques","False"],["this is third ques","True"]]
    
-    var quesNumber = -1;
+    var quesNumber = -1
     @IBAction func AnswerButton(_ sender: UIButton) {
-        
         if quiz[quesNumber].ans == sender.currentTitle!{
             sender.backgroundColor=UIColor.green
-            
-            
         }else{
-           
             sender.backgroundColor=UIColor.red
         }
         
@@ -57,14 +53,34 @@ class ViewController: UIViewController {
     @objc func updateQues(){
         trueButton.backgroundColor=UIColor.white
         falseButton.backgroundColor=UIColor.white
-        if quesNumber+1==quiz.count{
-            quesNumber=0
-        }else{
-            quesNumber+=1
+        
+        print(quesNumber,quiz.count)
+        quesNumber+=1
+        progressBar.progress=Float(quesNumber)/Float(quiz.count)
+        
+        if quiz.count==quesNumber+1{
+            // create the alert
+            let alert = UIAlertController(title: "Quizzer", message: "You have completed all the questions!!!", preferredStyle: UIAlertController.Style.alert)
+
+                // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertAction.Style.default, handler: {_ in self.replay()}))
+//                alert.addAction(UIAlertAction(title: "Exit", style: UIAlertAction.Style.cancel, handler: { _ in
+//                print("Exit Button got pressed!")
+//                exit(0) //not recommended by apple
+//            }))
+        
+
+                   // show the alert
+           self.present(alert, animated: true, completion: nil)
         }
+        
         QuestionLabel.text=quiz[quesNumber].ques
         
-       
+    }
+    func replay(){
+        quesNumber=0
+        progressBar.progress=0
+        print("Game restarted!!")
     }
 
 
