@@ -6,19 +6,8 @@
 //
 
 import UIKit
-struct Question{
-    var ques:String
-    var ans:String
-}
-var quiz=[
-    Question(ques: "This is the first ques", ans: "True"),
-    Question(ques: "This is the second ques", ans: "False"),
-    Question(ques: "This is the third ques", ans: "False"),
-    Question(ques: "This is the fourth ques", ans: "True"),
-    Question(ques: "This is the fifth ques", ans: "True"),
-    Question(ques: "This is the six ques", ans: "False")
-    
-]
+
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var falseButton: UIButton!
@@ -26,23 +15,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var QuestionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     
-    var quesNumber = -1
-    
+ 
+    var brain=QuizBrain()
     @IBAction func AnswerButton(_ sender: UIButton) {
-        if quiz[quesNumber].ans == sender.currentTitle!{
+        if brain.isCorrectAnswer(sender.currentTitle!){
             sender.backgroundColor=UIColor.green
         }else{
             sender.backgroundColor=UIColor.red
         }
 
-        if quiz.count==quesNumber+1{
+        if brain.isEndOfQuiz() {
                     // create the alert
-                    let alert = UIAlertController(title: "Quizzer", message: "You have completed all the questions!!!", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "Quizzer", message: "You have completed all the questions!!!", preferredStyle: UIAlertController.Style.alert)
 
                         // add the actions (buttons)
-                    alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertAction.Style.default, handler: {_ in
+                alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertAction.Style.default, handler: { [self]_ in
 
-                        self.replay()
+                brain.replay()
+                progressBar.progress=0
+                updateQues()
+                print("Game restarted!!")
                     }))
 //                alert.addAction(UIAlertAction(title: "Exit", style: UIAlertAction.Style.cancel, handler: { _ in
 //                print("Exit Button got pressed!")
@@ -51,9 +43,9 @@ class ViewController: UIViewController {
                    // show the alert
            self.present(alert, animated: true, completion: nil)
         }
+        
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateQues), userInfo: nil, repeats: false)
         
-     print(quesNumber)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,21 +61,16 @@ class ViewController: UIViewController {
         
     }
     @objc func updateQues(){
-        print(quesNumber,quiz.count)
+//        print(brain.quesNumber,brain.quiz.count)
         trueButton.backgroundColor=UIColor.white
         falseButton.backgroundColor=UIColor.white
-        quesNumber+=1
-        if quesNumber<quiz.count{
-        QuestionLabel.text=quiz[quesNumber].ques
+        brain.nextQues()
+        if brain.quesNumber<brain.quiz.count{
+            QuestionLabel.text=brain.question()
         }
-        progressBar.progress=Float(quesNumber)/Float(quiz.count)
+        progressBar.progress=brain.progress()
     }
-    func replay(){
-        quesNumber = -1
-        progressBar.progress=0
-        updateQues()
-        print("Game restarted!!")
-    }
+  
 
 
 }
