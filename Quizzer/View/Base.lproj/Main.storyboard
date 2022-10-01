@@ -69,11 +69,23 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
+                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6XB-cx-Mja">
+                                                        <rect key="frame" x="20" y="414" width="388" height="4"/>
+                                                        <color key="backgroundColor" red="0.50588238240000005" green="0.3803921938" blue="0.64705884459999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="EOn-gU-mPL"/>
+                                                        </constraints>
+                                                    </progressView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="89P-jF-GRV" firstAttribute="centerY" secondItem="HUY-s5-Vv3" secondAttribute="centerY" id="38d-bA-bBk"/>
                                                     <constraint firstItem="89P-jF-GRV" firstAttribute="leading" secondItem="HUY-s5-Vv3" secondAttribute="leading" id="IzD-2D-skf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6XB-cx-Mja" secondAttribute="trailing" constant="20" id="KeG-gI-mpt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="6XB-cx-Mja" secondAttribute="bottom" constant="20" id="Sqy-kB-hW6"/>
+                                                    <constraint firstItem="6XB-cx-Mja" firstAttribute="centerX" secondItem="HUY-s5-Vv3" secondAttribute="centerX" id="sxX-6G-ZCG"/>
                                                     <constraint firstAttribute="trailing" secondItem="89P-jF-GRV" secondAttribute="trailing" id="toc-Qs-BuA"/>
+                                                    <constraint firstItem="6XB-cx-Mja" firstAttribute="leading" secondItem="HUY-s5-Vv3" secondAttribute="leading" constant="20" id="uJG-Td-6em"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -103,6 +115,7 @@
                     <connections>
                         <outlet property="QuestionLabel" destination="MNB-UI-vC1" id="ybD-5V-0Zu"/>
                         <outlet property="falseButton" destination="gg0-OA-OHU" id="MRN-19-I7i"/>
+                        <outlet property="progressBar" destination="6XB-cx-Mja" id="nME-w4-nyB"/>
                         <outlet property="trueButton" destination="nPy-Lk-Zhp" id="LJg-DS-54N"/>
                     </connections>
                 </viewController>
